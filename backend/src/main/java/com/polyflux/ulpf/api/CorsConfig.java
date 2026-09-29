@@ -5,5 +5,5 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration public class CorsConfig {
- @Bean WebMvcConfigurer cors(@Value("${ulpf.cors.allowed-origins:http://localhost:8080,http://localhost:5173}") String origins){String[] allowed=origins.split(",");return new WebMvcConfigurer(){@Override public void addCorsMappings(CorsRegistry registry){registry.addMapping("/api/**").allowedOrigins(allowed).allowedMethods("GET","POST","PUT","OPTIONS").allowedHeaders("*");}};}
+ @Bean WebMvcConfigurer cors(@Value("${ulpf.cors.allowed-origins:http://localhost:8080,http://localhost:5173}") String origins){String[] allowed=origins.split(",");return new WebMvcConfigurer(){@Override public void addCorsMappings(CorsRegistry registry){registry.addMapping("/**").allowedOriginPatterns(allowed).allowedMethods("GET","POST","PUT","DELETE","OPTIONS","PATCH").allowedHeaders("*");}};}
 }
