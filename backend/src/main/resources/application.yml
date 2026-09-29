@@ -6,8 +6,8 @@ spring:
   application:
     name: polyflux-ulpf
   datasource:
-    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/polyflux}
-    username: ${DATABASE_USER:polyflux}
+    url: ${DATABASE_URL:jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/${DATABASE_NAME:polyflux}}
+    username: ${DATABASE_USER:${DATABASE_USERNAME:polyflux}}
     password: ${DATABASE_PASSWORD:polyflux}
   jpa:
     hibernate:
